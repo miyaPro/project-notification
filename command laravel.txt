@@ -1,0 +1,8 @@
+1 lệnh tạo notification
+	php artisan make:notification InvoicePaid
+2 cài laravel echo 
+	npm install laravel-echo
+3 tạo event 
+	 php artisan make:event BroadcastEvent
+4 install
+	npm install express redis socket.io --save
