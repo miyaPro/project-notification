@@ -37,7 +37,7 @@ elixir(function (mix) {
         paths.jquery + '/jquery.min.js',
         paths.bootstrap + '/dist/js/bootstrap.min.js',
         paths.bootstrap_select + '/dist/js/bootstrap-select.js',
-        'public/js/socket.io-1.4.5.js'
+        'public/js/socket.io-1.4.5.js',
     ], 'public/js/app.js','./');
 
     // Cache-bust all.css and all.js files.

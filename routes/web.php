@@ -18,4 +18,16 @@ Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('notification/sendBroadcast', 'NotificationController@sendBroadcast');
+Route::post('notification/sendBroadcast', 'NotificationController@sendBroadcast');
+Route::post('fire', function () {
+    event(new App\Events\BroadcastEvent());
+    return "event fired";
+});
+Route::get('index1', function () {
+    return view('broadcast.index1');
+});
+
+Route::get('index2', function () {
+    return view('broadcast.index2');
+});
+

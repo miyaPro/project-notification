@@ -21,6 +21,7 @@
     </script>
 </head>
 <body>
+<!-- Scripts -->
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -77,11 +78,10 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
+        <script src="/js/app.js"></script>
+        @yield('script')
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>

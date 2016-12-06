@@ -11,23 +11,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\EventDispatcher\Event;
 
-class BroadcastEvent extends Event implements ShouldBroadcast
+class CaculatorEvent extends Event implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
-
+    public $data;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public $data;
     public function __construct()
     {
-        //
-        Log::info('broadcast __construct');
-//        $this->data = [
-//            'data' => 'test'
-//        ];
+        Log::info('__construct');
     }
 
     /**
@@ -37,7 +32,7 @@ class BroadcastEvent extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        Log::info('broadcast on');
-        return new PrivateChannel('test-channel');
+        Log::info('broadcastOn');
+        return new Channel('test-channel');
     }
 }

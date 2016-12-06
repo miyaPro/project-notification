@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 
@@ -12,11 +13,6 @@ class BroadcastServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected $listen = [
-        'App\Events\OrderShipped' => [
-            'App\Listeners\SendShipmentNotification',
-        ],
-    ];
 
     public function boot()
     {

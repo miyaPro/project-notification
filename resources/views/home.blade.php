@@ -10,7 +10,8 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
-                <a href="{{url('notification/sendBroadcast')}}">BroadCast</a>
+{{--                <a href="{{url('notification/sendBroadcast')}}">BroadCast</a>--}}
+                <a href="{{url('fire')}}">BroadCast</a>
             </div>
         </div>
     </div>

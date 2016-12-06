@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BroadcastEvent;
+use App\Events\CaculatorEvent;
 use App\Notifications\BroadcastNotify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 
 class NotificationController extends Controller
@@ -86,10 +89,10 @@ class NotificationController extends Controller
     }
 
     public function sendBroadcast(){
-        Log::info('function send broadcast');
         $user = Auth::user();
         if($user){
-            $user->notify(new BroadcastNotify($user));
+            event(new CaculatorEvent());
         }
+        echo json_encode(array('success' => true));
     }
 }
