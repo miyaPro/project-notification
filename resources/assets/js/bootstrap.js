@@ -30,6 +30,50 @@ Vue.http.interceptors.push((request, next) => {
 
     next();
 });
+// import Echo from "laravel-echo"
+//
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: 'http://192.168.10.10:9090'
+// });
+
+import EchoLibrary from "laravel-echo"
+
+window.Echo = new EchoLibrary({
+    broadcaster: 'socket.io',
+    host: 'http://192.168.10.10:9090'
+});
+
+Echo.channel('message')
+    .listen('DemoEvent', (e ) => {
+        // React Logic here
+        console.log('demo event');
+    });
+
+
+
+
+// import Echo from "laravel-echo";
+//
+// window._ = require('lodash');
+//
+// window.io = require("socket.io-client");
+//
+// /**
+//  * Echo exposes an expressive API for subscribing to channels and listening
+//  * for events that are broadcast by Laravel. Echo and event broadcasting
+//  * allows your team to easily build robust real-time web applications.
+//  */
+// const echo = window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: `${process.env.APP_URL}:${process.env.NOTIFICACIONES_SOCKET_PORT}`
+// });
+//
+//
+// window.Echo.channel('*')
+//     .listen('*', (e) => {
+//         console.log(e);
+//     });
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

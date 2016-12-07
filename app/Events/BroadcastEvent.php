@@ -38,6 +38,7 @@ class BroadcastEvent extends Event implements ShouldBroadcast
     public function broadcastOn()
     {
         Log::info('broadcast on');
-        return new PrivateChannel('test-channel');
+//        return new PrivateChannel('test-channel');
+        return ['test-channel'];
     }
 }

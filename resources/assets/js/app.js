@@ -18,9 +18,3 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
-import Echo from "laravel-echo";
-
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: '192.168.10.10:3001'
-});

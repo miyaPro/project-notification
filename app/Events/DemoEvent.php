@@ -8,8 +8,10 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\EventDispatcher\Event;
 
-class CaculatorEvent
+class DemoEvent extends Event implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
 
@@ -21,6 +23,7 @@ class CaculatorEvent
     public function __construct()
     {
         //
+        Log::info('DemoEvent __construct');
     }
 
     /**
@@ -30,6 +33,7 @@ class CaculatorEvent
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        Log::info('DemoEvent broadcastOn');
+        return ['test-channel'];
     }
 }

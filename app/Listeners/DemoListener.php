@@ -2,13 +2,13 @@
 
 namespace App\Listeners;
 
-use App\Events\ CaculatorEvent;
+use App\Events\DemoEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
-class CaculatorFired
+class DemoListener
 {
     /**
      * Create the event listener.
@@ -18,20 +18,20 @@ class CaculatorFired
     public function __construct()
     {
         //
-        Log::info('CaculatorFired __construct');
+        Log::info('DemoListener __construct');
     }
 
     /**
      * Handle the event.
      *
-     * @param   CaculatorEvent  $event
+     * @param  DemoEvent  $event
      * @return void
      */
-    public function handle( CaculatorEvent $event)
+    public function handle(DemoEvent $event)
     {
         //
-        Log::info('CaculatorFired handle');
-        $redis = Redis::connection();
-        $redis->publish('message', 'msg');
+        Log::info('DemoListener handle');
+        $redis =Redis::connection();
+        $redis->publish('message', 'tang');
     }
 }
