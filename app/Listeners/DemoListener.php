@@ -31,6 +31,7 @@ class DemoListener
     {
         //
         Log::info('DemoListener handle');
+        Log::info(print_r($event, true));
         $redis =Redis::connection();
         $redis->publish('message', 'tang');
     }

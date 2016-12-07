@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 
 class BroadcastNotify extends Notification
 {
@@ -64,6 +65,8 @@ class BroadcastNotify extends Notification
 
     public function toBroadcast($notifiable){
         Log::info('notify broadcast');
+        $redis =Redis::connection();
+        $redis->publish('message', '12345');
         return [
             'data'  => 'test'
         ];

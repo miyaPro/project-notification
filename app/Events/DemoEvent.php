@@ -20,10 +20,12 @@ class DemoEvent extends Event implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
         //
         Log::info('DemoEvent __construct');
+        $this->data = $data;
     }
 
     /**
@@ -35,5 +37,13 @@ class DemoEvent extends Event implements ShouldBroadcast
     {
         Log::info('DemoEvent broadcastOn');
         return ['test-channel'];
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'username' => 'username',
+            'message' => 'message',
+        ];
     }
 }

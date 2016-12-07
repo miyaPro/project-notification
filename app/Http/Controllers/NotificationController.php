@@ -92,8 +92,7 @@ class NotificationController extends Controller
     public function sendBroadcast(){
         $user = Auth::user();
         if($user){
-//            event(new DemoEvent());
-//            $user->no
+//            event(new DemoEvent($user));
             $user->notify(new BroadcastNotify($user));
         }
         echo json_encode(array('success' => true));

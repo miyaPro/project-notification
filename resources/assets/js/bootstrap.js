@@ -37,18 +37,7 @@ Vue.http.interceptors.push((request, next) => {
 //     host: 'http://192.168.10.10:9090'
 // });
 
-import EchoLibrary from "laravel-echo"
 
-window.Echo = new EchoLibrary({
-    broadcaster: 'socket.io',
-    host: 'http://192.168.10.10:9090'
-});
-
-Echo.channel('message')
-    .listen('DemoEvent', (e ) => {
-        // React Logic here
-        console.log('demo event');
-    });
 
 
 

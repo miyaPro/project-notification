@@ -25,10 +25,14 @@
 //            .listen('App\\Events\\DemoEvent', function () {
 //                console.log('test laravel echo ');
 //        });
-        window.Echo.channel('message')
-            .listen('DemoEvent', (e) => {
-                console.log('Hello World!', e);
+//        abc.channel('message')
+//            .listen('DemoEvent', (e) => {
+//                console.log('Hello World!', e);
+//            });
+        abc.channel('message')
+            .listen('DemoEvent', (e ) => {
+                // React Logic here
+                console.log('demo event');
             });
-
-    </script>
+</script>
 @endsection

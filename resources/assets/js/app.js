@@ -18,3 +18,14 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+import Echo from "laravel-echo"
+var abc = new Echo({
+    broadcaster: 'socket.io',
+    host: 'http://192.168.10.10:9090'
+});
+
+abc.channel('message')
+    .listen('DemoEvent', (e ) => {
+        // React Logic here
+        console.log('demo event');
+    });
